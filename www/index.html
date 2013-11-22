@@ -52,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!--**********************************************************************************-->
 	<!--Home Page-->
 	<div data-role="page" id="HomeScreen">
@@ -60,10 +60,9 @@
 			<h1>Holiday Countdown</h1>
 		</div>
 		<div data-role="content" id="content">
-			Holiday Stuff will go here!
+			<div class="countDownLabel">Time until <span class="holidayName"></span>:</div> 
 		</div>
 	</div>
-
 
 
 
@@ -72,10 +71,12 @@
 	<script type="text/javascript">
 
 		function displayHolidays(data) {
-			$('#content').text(JSON.stringify(data));
-			for (var holiday in data) {
-				alert(JSON.stringify(holiday));
-			}
+			//$('#content').text(JSON.stringify(data));
+			//alert(data[0].HolidayName);
+			$('.holidayName').text(data[0].HolidayName);
+			//$.each(data, function (index, element) {
+			//	alert(element.HolidayName);
+			//});
 		}
 
 		app.initialize();
