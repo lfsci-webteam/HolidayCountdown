@@ -70,6 +70,14 @@
 
 
 	<script type="text/javascript">
+
+		function displayHolidays(data) {
+			$('#content').text(JSON.stringify(data));
+			for (var holiday in data) {
+				alert(JSON.stringify(holiday));
+			}
+		}
+
 		app.initialize();
     </script>
 </body>
