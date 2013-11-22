@@ -49,7 +49,8 @@ var app = {
     	$('#HomeScreen').on('pagebeforeshow', function () {
 
 			// query the holidays web service to get all the holidays
-    		var url = 'http://batman.byu.local/HolidayService/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014?callback=?';
+    		//var url = 'http://batman.byu.local/HolidayService/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014?callback=?';
+    		var url = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014?callback=?';
     		$.getJSON(url, null, displayHolidays); // since the data is passed in the url we pass a null string as the url.
 
     	});
