@@ -16,6 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+function displayHolidays(data) {
+	$('#content').text(JSON.stringify(data));
+}
+    			
 var app = {
     // Application Constructor
     initialize: function() {
@@ -33,17 +38,23 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+
+    	var parentElement = document.getElementById('deviceready');
+    	var listeningElement = parentElement.querySelector('.listening');
+    	var receivedElement = parentElement.querySelector('.received');
+
+    	listeningElement.setAttribute('style', 'display:none;');
+    	receivedElement.setAttribute('style', 'display:block;');
+
+    	$('#HomeScreen').on('pagebeforeshow', function () {
+
+			// query the holidays web service to get all the holidays
+    		var url = 'http://batman.byu.local/HolidayService/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014?callback=?';
+    		$.getJSON(url, null, displayHolidays); // since the data is passed in the url we pass a null string as the url.
+
+    	});
+
+    	$.mobile.changePage("#HomeScreen", { transition: "fade" });
     },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
+
