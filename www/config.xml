@@ -2,10 +2,10 @@
 <widget id="edu.byu.lifesciences" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>HolidayCountdown</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        A simple application that uses a web service to tell you when the next holiday is.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="lfsci-webteam@byu.edu" href="http://lswebteam.byu.edu">
+        Life Sciences Web Team
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
