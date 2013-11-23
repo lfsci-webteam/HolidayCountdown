@@ -52,22 +52,22 @@ var app = {
 				//$.getJSON(myUrl, null, displayHolidays); // since the data is passed in the url we pass a null string as the url.
 				//$.getJSON('http://google.com/', function (data) { alert(data); });
 
-				var myUrl = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
-				$.ajax({
-					url: myUrl,
-					dataType: 'jsonp',
-					jsonp: 'callback',
-					timeout: 5000,
-					success: function (data, status) {
-						//data loaded
-						alert('success');
-						displayHolidays(data);
-					},
-					error: function () {
-						//error loading data
-						alert('failure');
-					}
-				});
+				//var myUrl = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
+				//$.ajax({
+				//	url: myUrl,
+				//	dataType: 'jsonp',
+				//	jsonp: 'callback',
+				//	timeout: 5000,
+				//	success: function (data, status) {
+				//		//data loaded
+				//		alert('success');
+				//		displayHolidays(data);
+				//	},
+				//	error: function () {
+				//		//error loading data
+				//		alert('failure');
+				//	}
+				//});
 			});
 		}
 		catch (err) {
@@ -77,4 +77,21 @@ var app = {
 		$.mobile.changePage("#HomeScreen", { transition: "fade" });
 	},
 };
+
+var myUrl = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
+$.ajax({
+	url: myUrl,
+	dataType: 'jsonp',
+	jsonp: 'callback',
+	timeout: 5000,
+	success: function (data, status) {
+		//data loaded
+		alert('success');
+		displayHolidays(data);
+	},
+	error: function () {
+		//error loading data
+		alert('failure');
+	}
+});
 
