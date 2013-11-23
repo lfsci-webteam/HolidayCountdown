@@ -74,24 +74,29 @@ var app = {
 			alert(err.message);
 		}
 
+		$('#btnGetData').click(function () {
+			var myUrl = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
+			$.ajax({
+				url: myUrl,
+				dataType: 'jsonp',
+				jsonp: 'callback',
+				timeout: 5000,
+				success: function (data, status) {
+					//data loaded
+					alert('success');
+					displayHolidays(data);
+				},
+				error: function () {
+					//error loading data
+					alert('failure');
+				}
+			});
+		});
+
 		$.mobile.changePage("#HomeScreen", { transition: "fade" });
 	},
 };
 
-var myUrl = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
-$.ajax({
-	url: myUrl,
-	dataType: 'jsonp',
-	jsonp: 'callback',
-	timeout: 5000,
-	success: function (data, status) {
-		//data loaded
-		alert('success');
-		displayHolidays(data);
-	},
-	error: function () {
-		//error loading data
-		alert('failure');
-	}
-});
+
+
 
