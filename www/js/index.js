@@ -76,10 +76,12 @@ var app = {
 
 		$('#btnGetData').click(function () {
 			var myUrl = 'http://lswebservices.byu.edu/holidays/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
+			//var myUrl = 'http://localhost/HolidayService/HolidayService.svc/rest/GetHolidays/start/1-1-2013/end/1-1-2014';
 			$.ajax({
 				url: myUrl,
-				dataType: 'jsonp',
-				jsonp: 'callback',
+				dataType: 'json',
+				//dataType: 'jsonp',
+				//jsonp: 'callback',
 				timeout: 5000,
 				success: function (data, status) {
 					//data loaded
